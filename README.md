@@ -1,3 +1,3 @@
-# Projekt za predmet Spletno programiranje
+# README
 
-# v drugem letniku na smeri Spletne in informacijske tehnologije na Almi Mater Europaea
+Projekt za predmet Spletno programiranje
