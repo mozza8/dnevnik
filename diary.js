@@ -197,6 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
     events.splice(index, 1);
     localStorage.setItem("events", JSON.stringify(events));
     displayEvents(table, events);
+    var searchInput = document.getElementById("search");
+    searchInput.value = "";
   };
 
   // on click submit form it firstly goes through validation function
@@ -268,7 +270,8 @@ function displayEvents(table, events) {
   });
 }
 
-function logSelectedValue() {
+// filter events
+function filterEvents() {
   var table = document
     .getElementById("dataTable")
     .getElementsByTagName("tbody")[0];
@@ -303,5 +306,35 @@ function logSelectedValue() {
       const previousEvents = filterEvents((event) => event.date < date);
       displayEvents(table, previousEvents);
       break;
+  }
+}
+
+// search events
+function searchEvents() {
+  // Declare variables
+  var input, filter, table, tr, i;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    var name = tr[i].getElementsByTagName("td")[1];
+    var description = tr[i].getElementsByTagName("td")[2];
+    if (name || description) {
+      var nameValue = name.textContent || name.innerText;
+      var descriptionValue = description.textContent || description.innerText;
+
+      // check position of string fiter if exists
+      if (
+        nameValue.toUpperCase().indexOf(filter) > -1 ||
+        descriptionValue.toUpperCase().indexOf(filter) > -1
+      ) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
   }
 }
