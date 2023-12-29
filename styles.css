@@ -1,11 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #d6c3af;
-  /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(to left, #8E0E00, #1F1C18); */
-  /* Chrome 10-25, Safari 5.1-6 */
-  /* background: linear-gradient(to left, #8E0E00, #1F1C18); */
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #container {
@@ -25,6 +20,7 @@ body {
   display: flex;
   height: 35px;
   justify-content: center;
+  font-family: monospace;
   background: #976a08;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -42,7 +38,6 @@ h1 {
 #content {
   display: flex;
   flex-direction: row;
-  /* background-color: rgb(194 225 246); */
 }
 
 #form_layout {
@@ -68,27 +63,35 @@ label {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 3px;
+  font-family: monospace;
 }
 
 input {
   height: 30px;
   font-size: 17px;
   padding-left: 5px;
+  border: 1px solid #976a08;
+  border-radius: 5px;
+  font-family: monospace;
 }
 
 textarea {
   font-size: 17px;
   padding: 5px;
+  border: 1px solid #976a08;
+  border-radius: 5px;
 }
 
 #dateTime {
   display: flex;
   justify-content: left baseline;
+  border-radius: 5px;
 }
 
 .pickerDiv {
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
 }
 
 .custom-tooltip {
@@ -106,10 +109,11 @@ textarea {
   background: #6e3f09;
   border-radius: 5px;
   margin: auto;
-  width: 148px;
+  width: 158px;
   height: 30px;
   font-size: 17px;
   color: white;
+  font-family: monospace;
 }
 
 table {
@@ -122,14 +126,10 @@ table {
 
 th,
 td {
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #cfcece;
+  border-bottom: 1px solid #cfcece;
   padding: 8px;
   border-spacing: 0;
-}
-
-tr {
-  border-bottom: 1px solid #ddd;
 }
 
 th:nth-child(6) {
@@ -141,17 +141,19 @@ td:nth-child(6) {
 }
 
 th {
-  font-size: 20px;
+  font-size: 21px;
+  font-family: monospace;
 }
 
 th button {
   background: transparent;
   border: none;
   display: inline;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
   cursor: pointer;
   position: relative;
+  font-family: monospace;
 }
 
 th button span {
@@ -179,6 +181,8 @@ th[aria-sort="ascending"] span::after {
 
 tr {
   border: 5px solid #ddd;
+  font-size: 18px;
+  font-family: monospace;
 }
 
 .error {
@@ -197,4 +201,19 @@ tr {
   font-size: 15px;
   width: 100px;
   cursor: pointer;
+}
+
+#selectEvents {
+  height: 35px;
+  border-radius: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+  border: 1px solid #976a08;
+  font-family: monospace;
+}
+
+#search {
+  border-radius: 5px;
+  border: 1px solid #976a08;
+  font-family: monospace;
 }

@@ -251,22 +251,44 @@ function displayEvents(table, events) {
     cell2.style.overflow = "hidden";
     cell2.style.textOverflow = "ellipsis";
     cell2.style.whiteSpace = "nowrap";
-    cell2.style.maxWidth = "10vw";
+    cell2.style.maxWidth = "20vw";
     cell2.style.position = "relative";
     cell2.innerHTML = event.title;
-
     cell3.style.overflow = "hidden";
     cell3.style.textOverflow = "ellipsis";
     cell3.style.whiteSpace = "nowrap";
-    cell3.style.maxWidth = "20vh";
+    cell3.style.maxWidth = "30vh";
     cell3.style.position = "relative";
     cell3.innerHTML = event.description;
     cell4.innerHTML = event.date;
+    cell4.style.maxWidth = "10vh";
     cell4.style.textAlign = "center";
     cell5.innerHTML = event.time;
     cell5.style.textAlign = "center";
+    cell5.style.maxWidth = "8vh";
     cell6.innerHTML = removeButton;
     cell6.style.textAlign = "center";
+    cell6.style.maxWidth = "8vh";
+
+    // if description is to long, add a toolitp
+    if (event.description.length > 51) {
+      var tooltip = document.createElement("div");
+      tooltip.classList.add("custom-tooltip");
+      tooltip.innerHTML = event.description;
+      document.body.appendChild(tooltip);
+
+      // Show the tooltip on hover
+      cell3.addEventListener("mouseover", function () {
+        tooltip.style.display = "block";
+        tooltip.style.left = cell3.offsetLeft + "px";
+        tooltip.style.top = cell3.offsetTop + cell2.offsetHeight + "px";
+      });
+
+      // Hide the tooltip on mouseout
+      cell3.addEventListener("mouseout", function () {
+        tooltip.style.display = "none";
+      });
+    }
   });
 }
 
