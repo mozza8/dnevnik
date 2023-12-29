@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("form");
   var table = document
     .getElementById("dataTable")
     .getElementsByTagName("tbody")[0];
@@ -267,4 +266,42 @@ function displayEvents(table, events) {
     cell6.innerHTML = removeButton;
     cell6.style.textAlign = "center";
   });
+}
+
+function logSelectedValue() {
+  var table = document
+    .getElementById("dataTable")
+    .getElementsByTagName("tbody")[0];
+  let events = JSON.parse(localStorage.getItem("events")) || [];
+
+  var selectElement = document.getElementById("selectEvents");
+  var selectedValue = selectElement.value;
+
+  const today = new Date();
+  var isoDate = today.toISOString();
+  var date = isoDate.slice(0, 10);
+
+  function filterEvents(predicate) {
+    const filteredEvents = events.filter(predicate);
+
+    return filteredEvents;
+  }
+
+  switch (selectedValue) {
+    case "Vsi dogodki":
+      displayEvents(table, events);
+      break;
+    case "Današnji dogodki":
+      const todaysEvents = filterEvents((event) => event.date == date);
+      displayEvents(table, todaysEvents);
+      break;
+    case "Prihajajoči dogodki":
+      const nextEvents = filterEvents((event) => event.date > date);
+      displayEvents(table, nextEvents);
+      break;
+    case "Pretekli dogodki":
+      const previousEvents = filterEvents((event) => event.date < date);
+      displayEvents(table, previousEvents);
+      break;
+  }
 }

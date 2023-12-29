@@ -37,6 +37,13 @@
             <br />
             <br />
             <input type="button" id="submit" value="Dodaj dogodek" />
+            <br />
+            <select id="selectEvents" onchange="logSelectedValue()">
+              <option value="Vsi dogodki">Vsi dogodki</option>
+              <option value="Današnji dogodki">Današnji dogodki</option>
+              <option value="Prihajajoči dogodki">Prihajajoči dogodki</option>
+              <option value="Pretekli dogodki">Pretekli dogodki</option>
+            </select>
           </form>
         </div>
         <div id="table_layout">
