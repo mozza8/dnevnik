@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <title>Dnevnik dogodkov</title>
   </head>
   <body>
     <div id="container">
@@ -36,7 +39,25 @@
 
             <br />
             <br />
+
             <input type="button" id="submit" value="Dodaj dogodek" />
+
+            <br />
+            <br />
+
+            <select id="selectEvents" onchange="filterEvents()">
+              <option value="Vsi dogodki">Vsi dogodki</option>
+              <option value="Današnji dogodki">Današnji dogodki</option>
+              <option value="Prihajajoči dogodki">Prihajajoči dogodki</option>
+              <option value="Pretekli dogodki">Pretekli dogodki</option>
+            </select>
+            <br />
+            <input
+              type="text"
+              id="search"
+              onkeyup="searchEvents()"
+              placeholder="Išči dogodke.."
+            />
           </form>
         </div>
         <div id="table_layout">
@@ -44,7 +65,7 @@
             <thead>
               <tr>
                 <th style="width: 10vh">ID</th>
-                <th style="width: 25vh">
+                <th style="width: 20vh">
                   <button id="buttonSortName">
                     Naslov
                     <span aria-hidden="true"></span>
